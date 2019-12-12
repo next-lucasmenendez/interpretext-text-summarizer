@@ -1,4 +1,4 @@
-package gobstract
+package summarizer
 
 const tokenSimilarityThreshold float64 = 0.55
 const sentenceSimilarityThreshold float64 = 0.7

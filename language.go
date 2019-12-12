@@ -1,4 +1,4 @@
-package gobstract
+package summarizer
 
 import (
 	"bufio"

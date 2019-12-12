@@ -1,19 +1,18 @@
-[![GoDoc](https://godoc.org/github.com/lucasmenendez/gobstract?status.svg)](https://godoc.org/github.com/lucasmenendez/gobstract)
-[![Build Status](https://travis-ci.org/lucasmenendez/gobstract.svg?branch=master)](https://travis-ci.org/lucasmenendez/gobstract)
-[![Go Report Card](https://goreportcard.com/badge/github.com/lucasmenendez/gobstract)](https://goreportcard.com/report/github.com/lucasmenendez/gobstract)
+[![GoDoc](https://godoc.org/github.com/next-lucasmenendez/interpretext-text-summarizer?status.svg)](https://godoc.org/github.com/next-lucasmenendez/interpretext-text-summarizer)
+[![Go Report Card](https://goreportcard.com/badge/github.com/next-lucasmenendez/interpretext-text-summarizer)](https://goreportcard.com/report/github.com/next-lucasmenendez/interpretext-text-summarizer)
 
-# Gobstract
+# Interpretext text summarizer
 Gobstract package make extraction summaries from text provided. The algorithm measures sentence relations (measuring relevant token similarity), position and length to pick the text highlights.
 
 ## Installation
 ### PoS Tagging
-For more information check instructions [here](https://github.com/lucasmenendez/gopostagger#train-corpus).
+For more information check instructions [here](https://github.com/next-lucasmenendez/interpretext-text-summarizer#train-corpus).
 
 ### Abstracts
 ```bash
 export MODELS="<postagging trained models folder path>"
 
-go get github.com/lucasmenendez/gobstact
+go get github.com/next-lucasmenendez/interpretext-text-summarizer
 ```
 
 ### Use it
@@ -23,7 +22,7 @@ package main
 import (
     "fmt"
     "io/ioutil"
-    "github.com/lucasmenendez/gobstract"
+    summarizer "github.com/next-lucasmenendez/interpretext-text-summarizer"
 )
 
 func main() {
@@ -35,10 +34,10 @@ func main() {
         input = string(raw)
     }
 
-    if t, err := gobstract.NewText(input, "es"); err != nil {
+    if text, err := summarizer.NewText(input, "es"); err != nil {
         fmt.Println(err)
     } else {
-        var summary []string = t.Summarize()
+        var summary []string = text.Summarize()
         for _, sentence := range summary {
             fmt.Println(sentence)
         }

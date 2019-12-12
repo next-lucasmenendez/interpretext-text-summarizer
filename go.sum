@@ -1,0 +1,4 @@
+github.com/next-lucasmenendez/interpretext-postagger v0.0.0-20191212100924-a6bc6cef740b h1:0hIGFQemIWu4CiPlnQ5H7Werj/ZIqy21+0dm6uLWxf0=
+github.com/next-lucasmenendez/interpretext-postagger v0.0.0-20191212100924-a6bc6cef740b/go.mod h1:xaKzXX4GW40ERWlnSavjDoKoeQhm9JOD0xIxhR0Abhg=
+github.com/next-lucasmenendez/interpretext-tokenizer v0.0.0-20191212092607-48f2c457ae34 h1:JKk8JtAveNICu8BMx5LazpVPXtFxaGHEcOE6xdjQcDE=
+github.com/next-lucasmenendez/interpretext-tokenizer v0.0.0-20191212092607-48f2c457ae34/go.mod h1:G0RGGzUZ6GqlzmZZw5bdKj5TWGhaeK9GzBydoOIlNJo=

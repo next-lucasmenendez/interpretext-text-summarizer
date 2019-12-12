@@ -1,9 +1,6 @@
-package gobstract
+package summarizer
 
-import (
-	"testing"
-	//"fmt"
-)
+import "testing"
 
 func TestJaroDistance(t *testing.T) {
 	var (

@@ -1,4 +1,4 @@
-package gobstract
+package summarizer
 
 const scalingFactor float64 = 0.1
 

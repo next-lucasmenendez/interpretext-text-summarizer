@@ -1,12 +1,12 @@
-// Package gobstract package make extraction summaries from text provided. The
+// Package summarizer package make extraction summaries from text provided. The
 // algorithm measures sentence relations, position and similarity to pick the
 // most important text sentences.
-package gobstract
+package summarizer
 
 import (
 	"errors"
-	"github.com/lucasmenendez/gopostagger"
-	"github.com/lucasmenendez/gotokenizer"
+	postagger "github.com/next-lucasmenendez/interpretext-postagger"
+	tokenizer "github.com/next-lucasmenendez/interpretext-tokenizer"
 	"strings"
 )
 
@@ -41,7 +41,7 @@ func NewText(input, langCode string) (*Text, error) {
 // buildSentences function splits text sentences and initializes sentence
 // structs measuring its lengthRaw and order into the full text.
 func (t *Text) buildSentences(i string) {
-	for o, rs := range gotokenizer.Sentences(i) {
+	for o, rs := range tokenizer.Sentences(i) {
 		var tokens []string = t.getTokens(rs)
 		var s sentence = sentence{
 			raw:          rs,
@@ -62,11 +62,11 @@ func (t *Text) buildSentences(i string) {
 // extract only NOUN's and ADJ's. Else, extract all non-stopwords tokens.
 func (t *Text) getTokens(s string) (r []string) {
 	var tr []string
-	var ts []string = gotokenizer.Words(s)
-	if m, e := gopostagger.LoadModel(t.lang.model); e != nil {
+	var ts []string = tokenizer.Words(s)
+	if m, e := postagger.LoadModel(t.lang.model); e != nil {
 		tr = append(r, ts...)
 	} else {
-		tagger := gopostagger.NewTagger(m)
+		tagger := postagger.NewTagger(m)
 
 		var pts [][]string = tagger.Tag(ts)
 		for _, i := range pts {
